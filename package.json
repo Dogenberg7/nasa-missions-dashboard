@@ -1,0 +1,17 @@
+{
+  "name": "nasa-missions-dashboard",
+  "version": "1.0.0",
+  "description": "Interactive dashboard for exploring notable NASA missions, built on NASA public APIs with a PostgreSQL persistence layer.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.23.0"
+  }
+}
