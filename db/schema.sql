@@ -56,3 +56,16 @@ CREATE INDEX idx_media_mission_date ON media_assets (mission_id, date_created);
 CREATE INDEX idx_media_type ON media_assets (media_type);
 CREATE INDEX idx_media_date ON media_assets (date_created);
 
+CREATE TABLE sync_jobs (
+    id              SERIAL PRIMARY KEY,
+    mission_id      INT REFERENCES missions(id) ON DELETE SET NULL,
+    started_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
+    finished_at     TIMESTAMPTZ,
+    status          TEXT NOT NULL DEFAULT 'running'
+                    CHECK (status IN ('running', 'success', 'partial', 'failed')),
+    assets_found    INT,
+    assets_written  INT,
+    error_message   TEXT
+);
+
+CREATE INDEX idx_sync_jobs_mission ON sync_jobs (mission_id, started_at DESC);
