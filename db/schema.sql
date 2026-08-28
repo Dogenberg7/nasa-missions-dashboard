@@ -34,3 +34,7 @@ CREATE TABLE missions (
 
     CHECK (end_date IS NULL OR end_date >= launch_date)
 );
+
+CREATE INDEX idx_missions_launch_date ON missions (launch_date);
+CREATE INDEX idx_missions_type        ON missions (type);
+CREATE INDEX idx_missions_site        ON missions (launch_site_id);
