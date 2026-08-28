@@ -38,3 +38,16 @@ CREATE TABLE missions (
 CREATE INDEX idx_missions_launch_date ON missions (launch_date);
 CREATE INDEX idx_missions_type        ON missions (type);
 CREATE INDEX idx_missions_site        ON missions (launch_site_id);
+
+CREATE TABLE media_assets (
+    id            BIGSERIAL PRIMARY KEY,
+    mission_id    INT NOT NULL REFERENCES missions(id) ON DELETE CASCADE,
+    nasa_id       TEXT NOT NULL,
+    title         TEXT NOT NULL,
+    description   TEXT,
+    media_type    TEXT NOT NULL
+                  CHECK (media_type IN ('image', 'video', 'audio')),
+    date_created  DATE,
+    ingested_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (mission_id, nasa_id)
+);
