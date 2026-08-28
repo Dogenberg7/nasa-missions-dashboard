@@ -78,3 +78,16 @@ CREATE TABLE api_cache (
 );
 
 CREATE INDEX idx_api_cache_expiry ON api_cache (expires_at);
+
+CREATE MATERIALIZED VIEW media_counts AS
+SELECT
+    m.id                    AS mission_id,
+    ma.media_type,
+    COUNT(*)                AS asset_count,
+    MIN(ma.date_created)    AS first_asset_date,
+    MAX(ma.date_created)    AS last_asset_date
+FROM missions m
+JOIN media_assets ma ON ma.mission_id = m.id
+GROUP BY m.id, ma.media_type;
+
+CREATE UNIQUE INDEX idx_media_counts_pk ON media_counts (mission_id, media_type);
