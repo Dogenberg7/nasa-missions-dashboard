@@ -51,3 +51,8 @@ CREATE TABLE media_assets (
     ingested_at   TIMESTAMPTZ NOT NULL DEFAULT now(),
     UNIQUE (mission_id, nasa_id)
 );
+
+CREATE INDEX idx_media_mission_date ON media_assets (mission_id, date_created);
+CREATE INDEX idx_media_type ON media_assets (media_type);
+CREATE INDEX idx_media_date ON media_assets (date_created);
+
