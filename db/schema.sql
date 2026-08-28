@@ -91,3 +91,17 @@ JOIN media_assets ma ON ma.mission_id = m.id
 GROUP BY m.id, ma.media_type;
 
 CREATE UNIQUE INDEX idx_media_counts_pk ON media_counts (mission_id, media_type);
+
+CREATE OR REPLACE FUNCTION set_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at := now();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_missions_updated_at
+BEFORE UPDATE ON missions
+FOR EACH ROW EXECUTE FUNCTION set_updated_at();
+
+COMMIT;
