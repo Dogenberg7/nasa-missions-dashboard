@@ -1,0 +1,331 @@
+{
+  "launch_sites": [
+    {
+      "id": "ksc-lc39a",
+      "name": "Kennedy Space Center - Launch Complex 39A",
+      "locality": "Merritt Island, Florida",
+      "country": "USA",
+      "latitude": 28.6082,
+      "longitude": -80.6041
+    },
+    {
+      "id": "ksc-lc39b",
+      "name": "Kennedy Space Center - Launch Complex 39B",
+      "locality": "Merritt Island, Florida",
+      "country": "USA",
+      "latitude": 28.6270,
+      "longitude": -80.6208
+    },
+    {
+      "id": "ccsfs-slc41",
+      "name": "Cape Canaveral Space Force Station - SLC-41",
+      "locality": "Cape Canaveral, Florida",
+      "country": "USA",
+      "latitude": 28.5834,
+      "longitude": -80.5830
+    },
+    {
+      "id": "ccsfs-slc40",
+      "name": "Cape Canaveral Space Force Station - SLC-40",
+      "locality": "Cape Canaveral, Florida",
+      "country": "USA",
+      "latitude": 28.5620,
+      "longitude": -80.5772
+    },
+    {
+      "id": "ccsfs-slc17",
+      "name": "Cape Canaveral Space Force Station - SLC-17 (pad A/B)",
+      "locality": "Cape Canaveral, Florida",
+      "country": "USA",
+      "latitude": 28.4472,
+      "longitude": -80.5657
+    },
+    {
+      "id": "ccsfs-slc37",
+      "name": "Cape Canaveral Space Force Station - SLC-37B",
+      "locality": "Cape Canaveral, Florida",
+      "country": "USA",
+      "latitude": 28.5317,
+      "longitude": -80.5646
+    },
+    {
+      "id": "vsfb-slc3e",
+      "name": "Vandenberg Space Force Base - SLC-3E",
+      "locality": "Lompoc, California",
+      "country": "USA",
+      "latitude": 34.6400,
+      "longitude": -120.5895
+    },
+    {
+      "id": "vsfb-slc4e",
+      "name": "Vandenberg Space Force Base - SLC-4E",
+      "locality": "Lompoc, California",
+      "country": "USA",
+      "latitude": 34.6320,
+      "longitude": -120.6107
+    },
+    {
+      "id": "csg-ela3",
+      "name": "Guiana Space Centre - ELA-3",
+      "locality": "Kourou",
+      "country": "French Guiana",
+      "latitude": 5.2390,
+      "longitude": -52.7680
+    }
+  ],
+  "missions": [
+    {
+      "name": "Apollo 11",
+      "launch_date": "1969-07-16",
+      "end_date": "1969-07-24",
+      "type": "crewed",
+      "program": "Apollo",
+      "destination": "Moon",
+      "outcome": "success",
+      "launch_site_id": "ksc-lc39a",
+      "search_keyword": "Apollo 11"
+    },
+    {
+      "name": "Apollo 13",
+      "launch_date": "1970-04-11",
+      "end_date": "1970-04-17",
+      "type": "crewed",
+      "program": "Apollo",
+      "destination": "Moon",
+      "outcome": "partial",
+      "launch_site_id": "ksc-lc39a",
+      "search_keyword": "Apollo 13"
+    },
+    {
+      "name": "Voyager 2",
+      "launch_date": "1977-08-20",
+      "end_date": null,
+      "type": "robotic",
+      "program": "Voyager",
+      "destination": "deep space",
+      "outcome": null,
+      "launch_site_id": "ccsfs-slc41",
+      "search_keyword": "Voyager 2"
+    },
+    {
+      "name": "Voyager 1",
+      "launch_date": "1977-09-05",
+      "end_date": null,
+      "type": "robotic",
+      "program": "Voyager",
+      "destination": "deep space",
+      "outcome": null,
+      "launch_site_id": "ccsfs-slc41",
+      "search_keyword": "Voyager 1"
+    },
+    {
+      "name": "Hubble Space Telescope",
+      "launch_date": "1990-04-24",
+      "end_date": null,
+      "type": "telescope",
+      "program": "Great Observatories",
+      "destination": "Earth orbit",
+      "outcome": null,
+      "launch_site_id": "ksc-lc39b",
+      "search_keyword": "Hubble Space Telescope"
+    },
+    {
+      "name": "Cassini-Huygens",
+      "launch_date": "1997-10-15",
+      "end_date": "2017-09-15",
+      "type": "robotic",
+      "program": "Cassini-Huygens",
+      "destination": "Saturn",
+      "outcome": "success",
+      "launch_site_id": "ccsfs-slc40",
+      "search_keyword": "Cassini"
+    },
+    {
+      "name": "Spirit (MER-A)",
+      "launch_date": "2003-06-10",
+      "end_date": "2011-05-25",
+      "type": "rover",
+      "program": "Mars Exploration Rover",
+      "destination": "Mars",
+      "outcome": "success",
+      "launch_site_id": "ccsfs-slc17",
+      "search_keyword": "Spirit rover"
+    },
+    {
+      "name": "Opportunity (MER-B)",
+      "launch_date": "2003-07-07",
+      "end_date": "2019-02-13",
+      "type": "rover",
+      "program": "Mars Exploration Rover",
+      "destination": "Mars",
+      "outcome": "success",
+      "launch_site_id": "ccsfs-slc17",
+      "search_keyword": "Opportunity rover"
+    },
+    {
+      "name": "New Horizons",
+      "launch_date": "2006-01-19",
+      "end_date": null,
+      "type": "robotic",
+      "program": "New Frontiers",
+      "destination": "deep space",
+      "outcome": null,
+      "launch_site_id": "ccsfs-slc41",
+      "search_keyword": "New Horizons"
+    },
+    {
+      "name": "Kepler",
+      "launch_date": "2009-03-07",
+      "end_date": "2018-10-30",
+      "type": "telescope",
+      "program": "Kepler",
+      "destination": "heliocentric orbit",
+      "outcome": "success",
+      "launch_site_id": "ccsfs-slc17",
+      "search_keyword": "Kepler space telescope"
+    },
+    {
+      "name": "Juno",
+      "launch_date": "2011-08-05",
+      "end_date": null,
+      "type": "robotic",
+      "program": "New Frontiers",
+      "destination": "Jupiter",
+      "outcome": null,
+      "launch_site_id": "ccsfs-slc41",
+      "search_keyword": "Juno Jupiter"
+    },
+    {
+      "name": "Curiosity (Mars Science Laboratory)",
+      "launch_date": "2011-11-26",
+      "end_date": null,
+      "type": "rover",
+      "program": "Mars Science Laboratory",
+      "destination": "Mars",
+      "outcome": null,
+      "launch_site_id": "ccsfs-slc41",
+      "search_keyword": "Curiosity rover"
+    },
+    {
+      "name": "OSIRIS-REx",
+      "launch_date": "2016-09-08",
+      "end_date": "2023-09-24",
+      "type": "robotic",
+      "program": "New Frontiers",
+      "destination": "asteroid Bennu",
+      "outcome": "success",
+      "launch_site_id": "ccsfs-slc41",
+      "search_keyword": "OSIRIS-REx"
+    },
+    {
+      "name": "TESS",
+      "launch_date": "2018-04-18",
+      "end_date": null,
+      "type": "telescope",
+      "program": "Explorer",
+      "destination": "Earth orbit",
+      "outcome": null,
+      "launch_site_id": "ccsfs-slc40",
+      "search_keyword": "TESS satellite"
+    },
+    {
+      "name": "InSight",
+      "launch_date": "2018-05-05",
+      "end_date": "2022-12-21",
+      "type": "robotic",
+      "program": "Discovery",
+      "destination": "Mars",
+      "outcome": "success",
+      "launch_site_id": "vsfb-slc3e",
+      "search_keyword": "InSight Mars"
+    },
+    {
+      "name": "Parker Solar Probe",
+      "launch_date": "2018-08-12",
+      "end_date": null,
+      "type": "robotic",
+      "program": "Living with a Star",
+      "destination": "Sun",
+      "outcome": null,
+      "launch_site_id": "ccsfs-slc37",
+      "search_keyword": "Parker Solar Probe"
+    },
+    {
+      "name": "Perseverance (Mars 2020)",
+      "launch_date": "2020-07-30",
+      "end_date": null,
+      "type": "rover",
+      "program": "Mars Exploration Program",
+      "destination": "Mars",
+      "outcome": null,
+      "launch_site_id": "ccsfs-slc41",
+      "search_keyword": "Perseverance rover"
+    },
+    {
+      "name": "DART",
+      "launch_date": "2021-11-24",
+      "end_date": "2022-09-26",
+      "type": "robotic",
+      "program": "Planetary Defense",
+      "destination": "asteroid Dimorphos",
+      "outcome": "success",
+      "launch_site_id": "vsfb-slc4e",
+      "search_keyword": "DART asteroid"
+    },
+    {
+      "name": "James Webb Space Telescope",
+      "launch_date": "2021-12-25",
+      "end_date": null,
+      "type": "telescope",
+      "program": "Great Observatories",
+      "destination": "Sun-Earth L2",
+      "outcome": null,
+      "launch_site_id": "csg-ela3",
+      "search_keyword": "James Webb Space Telescope"
+    },
+    {
+      "name": "Artemis I",
+      "launch_date": "2022-11-16",
+      "end_date": "2022-12-11",
+      "type": "crewed",
+      "program": "Artemis",
+      "destination": "Moon",
+      "outcome": "success",
+      "launch_site_id": "ksc-lc39b",
+      "search_keyword": "Artemis I"
+    },
+    {
+      "name": "Psyche",
+      "launch_date": "2023-10-13",
+      "end_date": null,
+      "type": "robotic",
+      "program": "Discovery",
+      "destination": "asteroid Psyche",
+      "outcome": null,
+      "launch_site_id": "ksc-lc39a",
+      "search_keyword": "Psyche mission"
+    },
+    {
+      "name": "Europa Clipper",
+      "launch_date": "2024-10-14",
+      "end_date": null,
+      "type": "robotic",
+      "program": "New Frontiers",
+      "destination": "Jupiter (Europa)",
+      "outcome": null,
+      "launch_site_id": "ksc-lc39a",
+      "search_keyword": "Europa Clipper"
+    },
+    {
+      "name": "Artemis II",
+      "launch_date": "2026-04-01",
+      "end_date": "2026-04-10",
+      "type": "crewed",
+      "program": "Artemis",
+      "destination": "Moon",
+      "outcome": "success",
+      "launch_site_id": "ksc-lc39b",
+      "search_keyword": "Artemis II"
+    }
+  ]
+}
