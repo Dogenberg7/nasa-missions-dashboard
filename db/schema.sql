@@ -69,3 +69,12 @@ CREATE TABLE sync_jobs (
 );
 
 CREATE INDEX idx_sync_jobs_mission ON sync_jobs (mission_id, started_at DESC);
+
+CREATE TABLE api_cache (
+    cache_key   TEXT PRIMARY KEY,
+    payload     JSONB NOT NULL,
+    fetched_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+    expires_at  TIMESTAMPTZ
+);
+
+CREATE INDEX idx_api_cache_expiry ON api_cache (expires_at);
