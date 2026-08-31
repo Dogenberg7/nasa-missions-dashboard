@@ -2,6 +2,7 @@ import express from 'express';
 import 'dotenv/config';
 import { query } from './db.js';
 import missionsRouter from './routes/missions.js';
+import statsRouter from './routes/stats.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,6 +19,7 @@ app.get('/api/health', async (_req, res) => {
 });
 
 app.use('/api/missions', missionsRouter);
+app.use('/api/stats', statsRouter);
 
 app.use((err, _req, res, _next) => {
     console.error(err);
