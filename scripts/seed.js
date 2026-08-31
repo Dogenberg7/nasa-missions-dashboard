@@ -22,9 +22,9 @@ try {
             VALUES ($1, $2, $3, $4, $5, $6)
             ON CONFLICT (id) DO UPDATE
             SET name = EXCLUDED.name, locality = EXCLUDED.locality,
-                country = EXCLUDED.country, latitude = EXCLUDED.latitude
+                country = EXCLUDED.country, latitude = EXCLUDED.latitude,
                 longitude = EXCLUDED.longitude`,
-            [s.id, s.name, s.locality, s.country, s.latitude, s. longitude]
+            [s.id, s.name, s.locality, s.country, s.latitude, s.longitude]
         );
     }
 
