@@ -23,4 +23,52 @@ router.get('/missions', async (_req, res, next) => {
     }
 });
 
+router.get('/media', async (_req, res, next) => {
+    try {
+        const { rows: [totals] } = await query(
+            `SELECT
+                COUNT(*) AS total,
+                COUNT(*) FILTER (WHERE media_type = 'image') AS images,
+                COUNT(*) FILTER (WHERE media_type = 'video') AS videos,
+                COUNT(*) FILTER (WHERE media_type = 'audio') AS audio
+            FROM media_assets`
+        );
+
+        const { rows: [topMission] } = await query(
+            `SELECT m.slug, m.name, COUNT(ma.id) AS total,
+                COUNT(ma.id) FILTER (WHERE ma.media_type = 'image') AS images,
+                COUNT(ma.id) FILTER (WHERE ma.media_type = 'video') AS videos,
+                COUNT(ma.id) FILTER (WHERE ma.media_type = 'audio') AS audio
+                FROM missions m
+                JOIN media_assets ma ON ma.mission_id = m.id
+                GROUP BY m.id, m.slug, m.name
+                ORDER BY total DESC
+                LIMIT 1`
+        );
+
+        res.json({
+            total: Number(totals.total),
+            by_type: {
+                image: Number(totals.images),
+                video: Number(totals.videos),
+                audio: Number(totals.audio)
+            },
+            top_mission: topMission
+                ? {
+                    slug: topMission.slug,
+                    name: topMission.name,
+                    total: Number(topMission.total),
+                    by_type: {
+                        image: Number(topMission.images),
+                        video: Number(topMission.videos),
+                        audio: Number(topMission.audio)
+                    },
+                }
+                : null,
+        });
+    } catch (err) {
+        next(err);
+    }
+});
+
 export default router;
