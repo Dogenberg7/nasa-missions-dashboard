@@ -99,6 +99,33 @@ router.get('/media/by-mission', async (_req, res, next) => {
     } catch (err) {
         next(err);
     }
-})
+});
+
+router.get('/launch-sites', async (_req, res, next) => {
+    try {
+        const {rows } = await query(
+            `SELECT ls.id, ls.name, ls.latitude, ls.longitude,
+                COUNT(m.id) AS missions_launched,
+                COUNT(m.id) FILTER (WHERE m.status = 'ongoing') AS still_ongoing
+            FROM launch_sites ls
+            LEFT JOIN missions m ON m.launch_site_id = ls.id
+            GROUP BY ls.id
+            ORDER BY missions_launched DESC`
+        );
+
+        res.json(
+            rows.map((r) => ({
+                id: r.id,
+                name: r.name,
+                latitude: Number(r.latitude),
+                longitude: Number(r.longitude),
+                missions_launched: Number(r.missions_launched),
+                still_ongoing: Number(r.still_ongoing)
+            }))
+        );
+    } catch (err) {
+        next(err);
+    }
+});
 
 export default router;
