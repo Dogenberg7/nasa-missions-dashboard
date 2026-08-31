@@ -71,4 +71,34 @@ router.get('/media', async (_req, res, next) => {
     }
 });
 
+router.get('/media/by-mission', async (_req, res, next) => {
+    try {
+        const { rows } = await query(
+            `SELECT m.slug, m.name, COUNT(ma.id) AS total,
+                COUNT(ma.id) FILTER (WHERE ma.media_type = 'image') AS images,
+                COUNT(ma.id) FILTER (WHERE ma.media_type = 'video') AS videos,
+                COUNT(ma.id) FILTER (WHERE ma.media_type = 'audio') AS audio
+            FROM missions m
+            LEFT JOIN media_assets ma ON ma.mission_id = m.id
+            GROUP BY m.id, m.slug, m.name
+            ORDER BY total DESC`
+        );
+
+        res.json(
+            rows.map((r) => ({
+                slug: r.slug,
+                name: r.name,
+                total: Number(r.total),
+                by_type: {
+                    image: Number(r.images),
+                    video: Number(r.videos),
+                    audio: Number(r.audio)
+                }
+            }))
+        );
+    } catch (err) {
+        next(err);
+    }
+})
+
 export default router;
