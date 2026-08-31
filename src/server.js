@@ -19,6 +19,11 @@ app.get('/api/health', async (_req, res) => {
 
 app.use('/api/missions', missionsRouter);
 
+app.use((err, _req, res, _next) => {
+    console.error(err);
+    res.status(500).json({ error: 'Internal server error' });
+});
+
 app.listen(port, () => {
     console.log(`NASA missions dashboard listening on http://localhost:${port}`);
 });
