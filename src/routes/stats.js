@@ -14,11 +14,13 @@ router.get('/missions', async (_req, res, next) => {
                 COUNT(*) FILTER (WHERE status = 'completed') AS completed
             FROM missions`
         );
-        console.log(counts);
         res.json({
+            label: "Missions available",
             total: Number(counts.total),
-            ongoing: Number(counts.ongoing),
-            completed: Number(counts.completed)
+            by_type: {
+                ongoing: Number(counts.ongoing),
+                completed: Number(counts.completed)
+            }
         });
     } catch (err) {
         next(err);
@@ -51,6 +53,7 @@ router.get('/media', async (_req, res, next) => {
         );
 
         res.json({
+            label: "Media available",
             total: Number(totals.total),
             by_type: {
                 image: Number(totals.images),
