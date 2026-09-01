@@ -35,4 +35,24 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+router.get('/timeline', async (req, res, next) => {
+    try {
+        const { rows: [mission] } = await query('SELECT id FROM missions WHERE slug = $1', [req.params.slug]);
+        if (!mission) return res.status(404).json({ error: 'Mission not found' });
+
+        const { rows } = await query(
+            `SELECT date_trunc('month', date_created)::date AS month, COUNT(*) AS assets
+            FROM media_assets
+            WHERE mission_id = $1 AND date_created IS NOT NULL
+            GROUP BY 1
+            ORDER BY 1`,
+            [mission.id]
+        );
+
+        res.json(rows.map((r) => ({ month: r.month, assets: Number(r.assets) })));
+    } catch (err) {
+        next(err);
+    }
+});
+
 export default router;
