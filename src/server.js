@@ -4,6 +4,7 @@ import { query } from './db.js';
 import missionsRouter from './routes/missions.js';
 import statsRouter from './routes/stats.js';
 import missionMediaRouter from './routes/mission-media.js';
+import launchSitesRouter from './routes/launch-sites.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,6 +23,7 @@ app.get('/api/health', async (_req, res) => {
 app.use('/api/missions', missionsRouter);
 app.use('/api/stats', statsRouter);
 app.use('/api/missions/:slug/media', missionMediaRouter);
+app.use('/api/launch-sites', launchSitesRouter);
 
 app.use((err, _req, res, _next) => {
     console.error(err);
