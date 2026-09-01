@@ -3,6 +3,17 @@ import { query } from '../db.js';
 
 const router = Router();
 
+const coverSubquery = `
+    COALESCE(
+        m.cover_image_override,
+        (SELECT ma.nasa_id
+        FROM media_assets ma
+        WHERE ma.mission_id = m.id AND ma.media_type = 'image'
+        ORDER BY ma.date_created NULLS LAST, ma.nasa_id
+        LIMIT 1)
+    ) AS cover_nasa_id
+`;
+
 // GET /api/missions
 // optional filters: name, from, to, type, country, status
 router.get('/', async (req, res, next) => {
@@ -11,7 +22,8 @@ router.get('/', async (req, res, next) => {
         const { rows } = await query(
             `SELECT m.id, m.slug, m.name, m.program, m.launch_date, m.end_date,
                     m.type, m.destination, m.status, m.outcome,
-                    ls.name AS launch_site_name, ls.locality, ls.country, ls.latitude, ls.longitude
+                    ls.name AS launch_site_name, ls.locality, ls.country, ls.latitude, ls.longitude,
+                    ${coverSubquery}
             FROM missions m
             JOIN launch_sites ls ON ls.id = m.launch_site_id
             WHERE ($1::text IS NULL OR m.name ILIKE '%' || $1 || '%')
@@ -34,7 +46,8 @@ router.get('/:slug', async (req, res, next) => {
     try {
         const { rows } = await query(
             `SELECT m.*, ls.name AS launch_site_name, ls.locality, ls.country,
-                    ls.latitude, ls.longitude
+                    ls.latitude, ls.longitude,
+                    ${coverSubquery}
             FROM missions m
             JOIN launch_sites ls ON ls.id = m.launch_site_id
             WHERE m.slug = $1`,
