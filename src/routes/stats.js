@@ -3,6 +3,8 @@ import { query } from '../db.js';
 
 const router = Router();
 
+// GET /api/stats/missions
+// Mission counts: total, ongoing, completed
 router.get('/missions', async (_req, res, next) => {
     try {
         const { rows: [counts] } = await query(
@@ -23,6 +25,8 @@ router.get('/missions', async (_req, res, next) => {
     }
 });
 
+// GET /api/stats/media
+// Media totals, broken down by category, with the mission with the most media
 router.get('/media', async (_req, res, next) => {
     try {
         const { rows: [totals] } = await query(
@@ -71,6 +75,8 @@ router.get('/media', async (_req, res, next) => {
     }
 });
 
+// GET /api/stats/media/by-mission
+// Media counts, broken down by category for each mission
 router.get('/media/by-mission', async (_req, res, next) => {
     try {
         const { rows } = await query(
@@ -101,6 +107,8 @@ router.get('/media/by-mission', async (_req, res, next) => {
     }
 });
 
+// GET /api/stats/launch-sites
+// Counts of missions launched from each launch site and how many are still ongoing
 router.get('/launch-sites', async (_req, res, next) => {
     try {
         const {rows } = await query(

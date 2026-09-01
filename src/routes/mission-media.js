@@ -3,6 +3,8 @@ import { query } from '../db.js';
 
 const router = Router({ mergeParams: true });
 
+// GET /api/missions/:slug/media
+// Media breakdown of the specified mission
 router.get('/', async (req, res, next) => {
     try {
         const { rows: [mission] } = await query('SELECT id FROM missions WHERE slug = $1', [req.params.slug]);
@@ -35,6 +37,8 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+// GET /api/missions/:slug/media/timeline
+// Media timeline of the specified mission per month
 router.get('/timeline', async (req, res, next) => {
     try {
         const { rows: [mission] } = await query('SELECT id FROM missions WHERE slug = $1', [req.params.slug]);
