@@ -26,7 +26,7 @@ router.get('/', async (req, res, next) => {
 
         res.json({
             total: byType.image + byType.video + byType.audio,
-            bu_type: byType,
+            by_type: byType,
             first_asset_date: firstAssetDate,
             last_asset_date: lastAssetDate
         });
