@@ -1,5 +1,6 @@
 import express from 'express';
 import 'dotenv/config';
+import cors from 'cors';
 import { query } from './db.js';
 import missionsRouter from './routes/missions.js';
 import statsRouter from './routes/stats.js';
@@ -9,6 +10,7 @@ import launchSitesRouter from './routes/launch-sites.js';
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 
 app.get('/api/health', async (_req, res) => {
@@ -30,6 +32,6 @@ app.use((err, _req, res, _next) => {
     res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`NASA missions dashboard listening on http://localhost:${port}`);
 });
