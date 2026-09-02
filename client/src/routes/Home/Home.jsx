@@ -1,4 +1,6 @@
 import './Home.css'
+import moon from '../../assets/moon.png'
+import sun from '../../assets/sun.png'
 import {useEffect, useState} from "react";
 import { useTheme } from "../../context/ThemeContext.jsx";
 import { API_URL } from "../../config.js";
@@ -70,7 +72,9 @@ function Home() {
                     </div>
                 </section>
             </section>
-            
+            <div className="moon">
+                <img src={theme === 'dark' ? moon : sun} alt=""/>
+            </div>
         </div>
     );
 }
