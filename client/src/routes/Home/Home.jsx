@@ -1,11 +1,18 @@
 import './Home.css'
 import {useEffect, useState} from "react";
+import { useTheme } from "../../context/ThemeContext.jsx";
 import { API_URL } from "../../config.js";
 import axios from "axios";
 
 function Home() {
+    const { theme, toggleTheme } = useTheme();
     const [missionData, setMissionData] = useState([]);
     const [topMission, setTopMission] = useState({})
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
 
     useEffect(() => {
         let active = true;
