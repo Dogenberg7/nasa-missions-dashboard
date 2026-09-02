@@ -1,0 +1,96 @@
+.home{
+    border-radius: 20px 0 0 20px;
+    background: var(--accent-bg);
+    height: 100dvh;
+    width: calc(100dvw - 70px);
+    z-index: 1;
+    position: fixed;
+    left: 70px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+
+
+.moon{
+    width: 800px;
+    height: 800px;
+    position: fixed;
+    bottom: -400px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: rotate 80s linear infinite;
+    pointer-events: none;
+}
+
+.moon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+@keyframes rotate {
+
+    from{
+        transform: translateX(-50%) rotate(0);
+    }
+
+    to{
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+.home .data{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    max-width: 1100px;
+    margin: 50px auto 0;
+}
+
+.home .data .group{
+    background: color-mix(var(--accent-bg) 50%, transparent);
+    backdrop-filter: blur(10px) saturate(120%) brightness(0.55);
+    border: 1px solid rgb(255 255 255 / 0.16);
+    border-radius: 14px;
+    padding: 20px;
+    transition: border-color .25s, transform .25s;
+}
+.home .data .group:hover{
+    border-color: rgb(255 255 255 / 0.3);
+    transform: translateY(-3px);
+}
+
+.group .accent{
+    display: block;
+    width: 38px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--accent);
+    margin-bottom: 18px;
+}
+.group .label{
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: rgb(255 255 255 / 0.55);
+    margin: 0;
+}
+.group .value{
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 6px 0 16px;
+}
+.group .row{
+    display: flex;
+    justify-content: space-between;
+    font-size: .85rem;
+    padding: 7px 0;
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+}
+.group .row span:first-child{ color: rgb(255 255 255 / 0.55); }

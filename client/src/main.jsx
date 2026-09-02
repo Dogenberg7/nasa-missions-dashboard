@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 import { StrictMode, Suspense } from "react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routing";
+import { ThemeProvider } from './context/ThemeContext.jsx';
 import './index.css';
 
 document.addEventListener('DOMContentLoaded', () => {
