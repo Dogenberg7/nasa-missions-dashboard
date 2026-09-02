@@ -77,7 +77,7 @@ function LaunchSites() {
                         <h2>Missions launched from this site</h2>
                         <div className="missionsGrid">
                             {data.missions.map((m) => (
-                                <div className="missionCard" key={m.name}>
+                                <div className="missionCard" key={m.name} onClick={() => window.location.href = `/missions/${m.slug}`}>
                                     <img src={`https://images-assets.nasa.gov/image/${m.cover_nasa_id}/${m.cover_nasa_id}~thumb.jpg`} alt={m.name}/>
                                     <div className="info">
                                         <h3>{m.name}</h3>
