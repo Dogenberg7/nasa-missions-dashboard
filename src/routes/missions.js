@@ -30,7 +30,7 @@ router.get('/', async (req, res, next) => {
                 AND ($2::date IS NULL OR m.launch_date >= $2)
                 AND ($3::date IS NULL OR m.launch_date <= $3)
                 AND ($4::text IS NULL OR m.type = $4)
-                AND ($5::text IS NULL OR ls.country = $5)
+                AND ($5::text IS NULL OR ls.country ILIKE '%' || $5 || '%')
                 AND ($6::text IS NULL OR m.status = $6)
             ORDER BY m.launch_date DESC`,
             [name, from, to, type, country, status]
