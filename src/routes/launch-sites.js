@@ -17,7 +17,7 @@ router.get('/:id', async (req, res, next) => {
         if (!site) return res.status(404).json({ error: 'Launch site not found' });
 
         const { rows: missions } = await query(
-            `SELECT m.name, m.program,
+            `SELECT m.name, m.program, m.slug,
                 COALESCE(
                     m.cover_image_override,
                     (SELECT ma.nasa_id
