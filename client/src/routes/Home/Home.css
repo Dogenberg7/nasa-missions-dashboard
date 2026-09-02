@@ -73,24 +73,26 @@
     background: var(--accent);
     margin-bottom: 18px;
 }
-.group .label{
+.home .group .label{
     font-size: .75rem;
     text-transform: uppercase;
     letter-spacing: .08em;
     color: rgb(255 255 255 / 0.55);
     margin: 0;
 }
-.group .value{
+.home .group .value{
     font-size: 2.4rem;
     font-weight: 500;
     line-height: 1.2;
     margin: 6px 0 16px;
+    color: rgb(255 255 255 / 0.55);
 }
-.group .row{
+.home .group .row{
     display: flex;
     justify-content: space-between;
     font-size: .85rem;
     padding: 7px 0;
     border-top: 1px solid rgb(255 255 255 / 0.1);
+    color: rgb(255 255 255 / 0.55);
 }
-.group .row span:first-child{ color: rgb(255 255 255 / 0.55); }
+.home .group .row span:first-child{ color: rgb(255 255 255 / 0.55); }
