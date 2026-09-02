@@ -10,11 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = createRoot(document.getElementById('app'));
     root.render(
         <StrictMode>
-            <ThemeProvider>
                 <Suspense fallback={<div/>}>
                     <RouterProvider router={router}/>
                 </Suspense>
-            </ThemeProvider>
         </StrictMode>
     );
 });
