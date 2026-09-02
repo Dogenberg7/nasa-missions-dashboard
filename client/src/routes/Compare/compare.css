@@ -1,0 +1,115 @@
+.compare{
+    border-radius: 20px 0 0 20px;
+    background: var(--accent-bg);
+    height: 100dvh;
+    width: calc(100dvw - 70px);
+    z-index: 1;
+    position: fixed;
+    left: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.compare h1{
+    margin: 0;
+}
+
+.compare .empty{
+    opacity: .7;
+}
+
+.tableWrapper{
+    background: var(--bg);
+    border-radius: 20px;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+.compare table{
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 760px;
+}
+
+.compare th,
+.compare td{
+    padding: 14px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--accent-border);
+    white-space: nowrap;
+}
+
+.compare thead th{
+    font-weight: 500;
+    font-size: .85rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    opacity: .7;
+    border-bottom: 1px solid var(--accent-border);
+}
+
+.compare tbody tr:last-child td{
+    border-bottom: none;
+}
+
+.compare tbody tr:hover{
+    background: var(--accent-bg);
+}
+
+.compare td.mission{
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.compare .remove{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    padding: 0;
+    color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.summary{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.summary .group{
+    background: var(--bg);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.summary .group h4{
+    margin: 0 0 12px;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    opacity: .7;
+}
+
+.summary .row{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 6px 0;
+    border-top: 1px solid var(--accent-border);
+}
+
+.summary .row:first-of-type{
+    border-top: none;
+}

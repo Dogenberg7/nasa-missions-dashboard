@@ -3,6 +3,7 @@ import Home from "./routes/Home/Home.jsx";
 import Missions from "./routes/Missions/Missions.jsx";
 import MissionDetail from "./routes/MissionDetail/MissionDetail.jsx";
 import LaunchSites from "./routes/LaunchSites/LaunchSites.jsx";
+import Compare from "./routes/Compare/Compare.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -20,5 +21,9 @@ export const router = createBrowserRouter([
     {
         path: "/launch-sites/:id",
         element: <LaunchSites/>
+    },
+    {
+        path: "/compare",
+        element: <Compare/>
     }
 ]);
