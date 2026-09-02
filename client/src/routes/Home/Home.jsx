@@ -1,3 +1,4 @@
+import SideBar from "../../Components/SideBar/SideBar.jsx";
 import './Home.css'
 import moon from '../../assets/moon.png'
 import sun from '../../assets/sun.png'
@@ -41,7 +42,7 @@ function Home() {
 
     return (
         <div>
-            
+            <SideBar onToggle={toggleTheme}/>
             <section className={'home'}>
                 <h1>Welcome to the NASA missions database</h1>
                 <p>Use the sidebar to navigate to specific sections, you can look up missions, launch sites and run comparisons</p>
