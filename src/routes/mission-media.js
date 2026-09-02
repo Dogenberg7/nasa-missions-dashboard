@@ -129,4 +129,36 @@ router.get('/images', async (req, res, next) => {
     }
 });
 
+// GET /api/missions/:slug/media/videos
+// Videos of the specified mission,
+// optional params: page, size
+router.get('/videos', async (req, res, next) => {
+    try {
+        const { slug } = req.params;
+        const { page = 1, size = 10 } = req.query;
+
+        const videos = await fetchMedia(slug, 'video', page, size);
+        if (!videos) return res.status(404).json({ error: 'Mission not found' });
+
+        const items = videos.items.map((i) => {
+            return {
+                ...i,
+                links: [
+                    `https://images-assets.nasa.gov/video/${i.nasa_id}/${i.nasa_id}~orig.mp4`
+                ]
+            }
+        });
+
+        res.json({
+            items,
+            page: videos.page,
+            size: videos.size,
+            total_hits: videos.total_hits,
+            next: videos.next
+        })
+    } catch (err) {
+        next(err);
+    }
+});
+
 export default router;
